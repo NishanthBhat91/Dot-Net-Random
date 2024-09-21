@@ -30,8 +30,73 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRemindMe));
+            tableLayoutPanel1 = new TableLayoutPanel();
+            label1 = new Label();
+            lstReminders = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
             notifyRemindMe = new NotifyIcon(components);
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.Controls.Add(label1, 1, 0);
+            tableLayoutPanel1.Controls.Add(lstReminders, 1, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.Size = new Size(482, 398);
+            tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Dock = DockStyle.Bottom;
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.Highlight;
+            label1.Location = new Point(51, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(379, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Reminders";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lstReminders
+            // 
+            lstReminders.BackColor = SystemColors.Info;
+            lstReminders.BorderStyle = BorderStyle.FixedSingle;
+            lstReminders.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            lstReminders.Dock = DockStyle.Fill;
+            lstReminders.FullRowSelect = true;
+            lstReminders.GridLines = true;
+            lstReminders.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            lstReminders.HideSelection = true;
+            lstReminders.Location = new Point(51, 42);
+            lstReminders.MultiSelect = false;
+            lstReminders.Name = "lstReminders";
+            lstReminders.Size = new Size(379, 312);
+            lstReminders.TabIndex = 1;
+            lstReminders.UseCompatibleStateImageBehavior = false;
+            lstReminders.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "When";
+            columnHeader1.Width = 150;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "What";
+            columnHeader2.Width = 225;
             // 
             // notifyRemindMe
             // 
@@ -46,18 +111,27 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
-            ClientSize = new Size(761, 465);
-            FormBorderStyle = FormBorderStyle.Fixed3D;
+            BackColor = SystemColors.GradientActiveCaption;
+            ClientSize = new Size(482, 398);
+            Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "frmRemindMe";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Remind Me";
             FormClosing += frmRemindMe_FormClosing;
             Load += frmRemindMe_Load;
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label label1;
+        private ListView lstReminders;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
         private NotifyIcon notifyRemindMe;
     }
 }

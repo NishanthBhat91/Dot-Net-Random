@@ -15,5 +15,10 @@ namespace NBKRemindeMe
         private void frmRemindMe_Load(object sender, EventArgs e)
         {
         }
+
+        private void frmRemindMe_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //TODO - Implement logic to minimize to tray
+        }
     }
 }

@@ -28,7 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRemindMe));
+            notifyRemindMe = new NotifyIcon(components);
             SuspendLayout();
+            // 
+            // notifyRemindMe
+            // 
+            notifyRemindMe.BalloonTipIcon = ToolTipIcon.Info;
+            notifyRemindMe.BalloonTipText = "Remind me Is running in background";
+            notifyRemindMe.BalloonTipTitle = "Running";
+            notifyRemindMe.Icon = (Icon)resources.GetObject("notifyRemindMe.Icon");
+            notifyRemindMe.Text = "Remind Me";
+            notifyRemindMe.Visible = true;
             // 
             // frmRemindMe
             // 
@@ -40,10 +52,12 @@
             Name = "frmRemindMe";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Remind Me";
+            FormClosing += frmRemindMe_FormClosing;
             Load += frmRemindMe_Load;
             ResumeLayout(false);
         }
 
         #endregion
+        private NotifyIcon notifyRemindMe;
     }
 }

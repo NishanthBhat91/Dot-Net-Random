@@ -12,6 +12,21 @@ namespace NBKRemindeMe
             InitializeComponent();
         }
 
+        private void itemAdd_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
+        private void itemEdit_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
+        private void itemRemove_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
         private void frmRemindMe_Load(object sender, EventArgs e)
         {
         }

@@ -35,12 +35,17 @@
             lstReminders = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
+            ctxMenuReminders = new ContextMenuStrip(components);
+            itemAdd = new ToolStripMenuItem();
+            itemEdit = new ToolStripMenuItem();
+            itemRemove = new ToolStripMenuItem();
             notifyRemindMe = new NotifyIcon(components);
             ctxRemindMe = new ContextMenuStrip(components);
             menuShowReminders = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             menuExit = new ToolStripMenuItem();
             tableLayoutPanel1.SuspendLayout();
+            ctxMenuReminders.SuspendLayout();
             ctxRemindMe.SuspendLayout();
             SuspendLayout();
             // 
@@ -80,6 +85,7 @@
             lstReminders.BackColor = SystemColors.Info;
             lstReminders.BorderStyle = BorderStyle.FixedSingle;
             lstReminders.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            lstReminders.ContextMenuStrip = ctxMenuReminders;
             lstReminders.Dock = DockStyle.Fill;
             lstReminders.FullRowSelect = true;
             lstReminders.GridLines = true;
@@ -102,6 +108,34 @@
             // 
             columnHeader2.Text = "What";
             columnHeader2.Width = 225;
+            // 
+            // ctxMenuReminders
+            // 
+            ctxMenuReminders.Items.AddRange(new ToolStripItem[] { itemAdd, itemEdit, itemRemove });
+            ctxMenuReminders.Name = "ctxMenuReminders";
+            ctxMenuReminders.Size = new Size(118, 70);
+            // 
+            // itemAdd
+            // 
+            itemAdd.Name = "itemAdd";
+            itemAdd.Size = new Size(117, 22);
+            itemAdd.Text = "Add";
+            itemAdd.TextDirection = ToolStripTextDirection.Horizontal;
+            itemAdd.Click += itemAdd_Click;
+            // 
+            // itemEdit
+            // 
+            itemEdit.Name = "itemEdit";
+            itemEdit.Size = new Size(117, 22);
+            itemEdit.Text = "Edit";
+            itemEdit.Click += itemEdit_Click;
+            // 
+            // itemRemove
+            // 
+            itemRemove.Name = "itemRemove";
+            itemRemove.Size = new Size(117, 22);
+            itemRemove.Text = "Remove";
+            itemRemove.Click += itemRemove_Click;
             // 
             // notifyRemindMe
             // 
@@ -152,6 +186,7 @@
             Load += frmRemindMe_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ctxMenuReminders.ResumeLayout(false);
             ctxRemindMe.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -163,6 +198,10 @@
         private ListView lstReminders;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
+        private ContextMenuStrip ctxMenuReminders;
+        private ToolStripMenuItem itemAdd;
+        private ToolStripMenuItem itemEdit;
+        private ToolStripMenuItem itemRemove;
         private NotifyIcon notifyRemindMe;
         private ContextMenuStrip ctxRemindMe;
         private ToolStripMenuItem menuShowReminders;

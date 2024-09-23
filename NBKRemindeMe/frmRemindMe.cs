@@ -14,7 +14,13 @@ namespace NBKRemindeMe
 
         private void itemAdd_Click(object sender, EventArgs e)
         {
-            //TODO
+            using (frmReminderEdit frm = new frmReminderEdit())
+            {
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                {
+					//TODO
+                }
+            }
         }
 
         private void itemEdit_Click(object sender, EventArgs e)

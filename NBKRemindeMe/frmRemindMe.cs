@@ -20,5 +20,10 @@ namespace NBKRemindeMe
         {
             //TODO - Implement logic to minimize to tray
         }
+
+        private void menuShowReminders_Click(object sender, EventArgs e)
+        {
+            this.Show();
+        }
     }
 }

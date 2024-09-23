@@ -36,7 +36,12 @@
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             notifyRemindMe = new NotifyIcon(components);
+            ctxRemindMe = new ContextMenuStrip(components);
+            menuShowReminders = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            menuExit = new ToolStripMenuItem();
             tableLayoutPanel1.SuspendLayout();
+            ctxRemindMe.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -103,9 +108,34 @@
             notifyRemindMe.BalloonTipIcon = ToolTipIcon.Info;
             notifyRemindMe.BalloonTipText = "Remind me Is running in background";
             notifyRemindMe.BalloonTipTitle = "Running";
+            notifyRemindMe.ContextMenuStrip = ctxRemindMe;
             notifyRemindMe.Icon = (Icon)resources.GetObject("notifyRemindMe.Icon");
             notifyRemindMe.Text = "Remind Me";
             notifyRemindMe.Visible = true;
+            // 
+            // ctxRemindMe
+            // 
+            ctxRemindMe.Items.AddRange(new ToolStripItem[] { menuShowReminders, toolStripSeparator1, menuExit });
+            ctxRemindMe.Name = "ctxRemindMe";
+            ctxRemindMe.Size = new Size(163, 54);
+            // 
+            // menuShowReminders
+            // 
+            menuShowReminders.Name = "menuShowReminders";
+            menuShowReminders.Size = new Size(162, 22);
+            menuShowReminders.Text = "Show Reminders";
+            menuShowReminders.Click += menuShowReminders_Click;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(159, 6);
+            // 
+            // menuExit
+            // 
+            menuExit.Name = "menuExit";
+            menuExit.Size = new Size(162, 22);
+            menuExit.Text = "Exit";
             // 
             // frmRemindMe
             // 
@@ -122,6 +152,7 @@
             Load += frmRemindMe_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ctxRemindMe.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -133,5 +164,9 @@
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private NotifyIcon notifyRemindMe;
+        private ContextMenuStrip ctxRemindMe;
+        private ToolStripMenuItem menuShowReminders;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem menuExit;
     }
 }

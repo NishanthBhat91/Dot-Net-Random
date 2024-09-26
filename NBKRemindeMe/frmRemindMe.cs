@@ -18,7 +18,11 @@ namespace NBKRemindeMe
             {
                 if (frm.ShowDialog(this) == DialogResult.OK)
                 {
-					//TODO
+                    DateTime reminderDate = frm.ReminderDate;
+                    ListViewItem item = new ListViewItem(new string[] { reminderDate.ToString(), frm.ReminderMessage });
+                    item.Tag = reminderDate;
+                    lstReminders.Items.Add(item);
+                    SortReminders();
                 }
             }
         }
@@ -40,6 +44,13 @@ namespace NBKRemindeMe
         private void frmRemindMe_FormClosing(object sender, FormClosingEventArgs e)
         {
             //TODO - Implement logic to minimize to tray
+        }
+
+        private void SortReminders()
+        {
+            var items = lstReminders.Items.Cast<ListViewItem>().OrderBy(x => ((DateTime)x.Tag).Ticks).ToList();
+            lstReminders.Items.Clear();
+            lstReminders.Items.AddRange(items.ToArray());
         }
 
         private void menuShowReminders_Click(object sender, EventArgs e)

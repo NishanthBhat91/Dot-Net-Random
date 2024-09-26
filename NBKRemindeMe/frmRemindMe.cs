@@ -29,7 +29,21 @@ namespace NBKRemindeMe
 
         private void itemEdit_Click(object sender, EventArgs e)
         {
-            //TODO
+            if (lstReminders.SelectedItems.Count == 0)
+            {
+                return;
+            }
+
+            using (frmReminderEdit frm = new frmReminderEdit())
+            {
+                frm.ReminderDate = (DateTime)lstReminders.SelectedItems[0].Tag;
+                frm.ReminderMessage = lstReminders.SelectedItems[0].SubItems[1].Text;
+                frm.EditMode = true;
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                {
+                    lstReminders.SelectedItems[0].SubItems[1].Text = frm.ReminderMessage;
+                }
+            }
         }
 
         private void itemRemove_Click(object sender, EventArgs e)

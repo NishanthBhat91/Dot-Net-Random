@@ -19,6 +19,10 @@ namespace NBKRemindeMe
             {
                 return GetControlDate();
             }
+            set
+            {
+                UpdateControlDate(value);
+            }
         }
 
         public string ReminderMessage
@@ -27,8 +31,26 @@ namespace NBKRemindeMe
             {
                 return txtMessage.Text.Trim();
             }
+            set
+            {
+                txtMessage.Text = value;
+            }
         }
 
+        public bool EditMode
+        {
+            set
+            {
+                
+                if (value)
+                {
+                    dtpReminderDate.Enabled = false;
+                    dtpReminderTime.Enabled = false;
+                    this.Text = "Edit Reminder";
+                }
+
+            }
+        }
         public frmReminderEdit()
         {
             InitializeComponent();

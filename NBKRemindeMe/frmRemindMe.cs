@@ -79,5 +79,10 @@ namespace NBKRemindeMe
         {
             this.Show();
         }
+
+        private void notifyRemindMe_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            menuShowReminders_Click(sender, new EventArgs() { });
+        }
     }
 }

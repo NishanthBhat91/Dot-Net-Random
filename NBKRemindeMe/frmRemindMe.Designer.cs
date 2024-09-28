@@ -146,6 +146,7 @@
             notifyRemindMe.Icon = (Icon)resources.GetObject("notifyRemindMe.Icon");
             notifyRemindMe.Text = "Remind Me";
             notifyRemindMe.Visible = true;
+            notifyRemindMe.MouseDoubleClick += notifyRemindMe_MouseDoubleClick;
             // 
             // ctxRemindMe
             // 

@@ -48,7 +48,15 @@ namespace NBKRemindeMe
 
         private void itemRemove_Click(object sender, EventArgs e)
         {
-            //TODO
+            if (lstReminders.SelectedItems.Count == 0)
+            {
+                return;
+            }
+
+            if (MessageBox.Show("Are you sure you want to remove the reminder at - " + lstReminders.SelectedItems[0].SubItems[0].Text, "Confirm Removal", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                lstReminders.Items.Remove(lstReminders.SelectedItems[0]);
+            }
         }
 
         private void frmRemindMe_Load(object sender, EventArgs e)

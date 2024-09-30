@@ -61,6 +61,7 @@ namespace NBKRemindeMe
 
         private void frmRemindMe_Load(object sender, EventArgs e)
         {
+            reminderTimer.Start();
         }
 
         private void frmRemindMe_FormClosing(object sender, FormClosingEventArgs e)
@@ -83,6 +84,17 @@ namespace NBKRemindeMe
         private void notifyRemindMe_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             menuShowReminders_Click(sender, new EventArgs() { });
+        }
+
+        private void reminderTimer_Tick(object sender, EventArgs e)
+        {
+            DateTime current = DateTime.Now;
+
+            foreach (ListViewItem reminderItem in lstReminders.Items.Cast<ListViewItem>().Where(item => ((DateTime)item.Tag) <= current).ToList())
+            {
+                notifyRemindMe.ShowBalloonTip(3000, "Reminder", reminderItem.SubItems[1].Text, ToolTipIcon.Info);
+                lstReminders.Items.Remove(reminderItem);
+            }
         }
     }
 }

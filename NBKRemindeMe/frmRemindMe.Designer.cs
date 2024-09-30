@@ -44,6 +44,7 @@
             menuShowReminders = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             menuExit = new ToolStripMenuItem();
+            reminderTimer = new System.Windows.Forms.Timer(components);
             tableLayoutPanel1.SuspendLayout();
             ctxMenuReminders.SuspendLayout();
             ctxRemindMe.SuspendLayout();
@@ -152,25 +153,30 @@
             // 
             ctxRemindMe.Items.AddRange(new ToolStripItem[] { menuShowReminders, toolStripSeparator1, menuExit });
             ctxRemindMe.Name = "ctxRemindMe";
-            ctxRemindMe.Size = new Size(163, 54);
+            ctxRemindMe.Size = new Size(165, 76);
             // 
             // menuShowReminders
             // 
             menuShowReminders.Name = "menuShowReminders";
-            menuShowReminders.Size = new Size(162, 22);
+            menuShowReminders.Size = new Size(164, 22);
             menuShowReminders.Text = "Show Reminders";
             menuShowReminders.Click += menuShowReminders_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(159, 6);
+            toolStripSeparator1.Size = new Size(161, 6);
             // 
             // menuExit
             // 
             menuExit.Name = "menuExit";
-            menuExit.Size = new Size(162, 22);
+            menuExit.Size = new Size(164, 22);
             menuExit.Text = "Exit";
+            // 
+            // reminderTimer
+            // 
+            reminderTimer.Interval = 1000;
+            reminderTimer.Tick += reminderTimer_Tick;
             // 
             // frmRemindMe
             // 
@@ -208,5 +214,6 @@
         private ToolStripMenuItem menuShowReminders;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem menuExit;
+        private System.Windows.Forms.Timer reminderTimer;
     }
 }

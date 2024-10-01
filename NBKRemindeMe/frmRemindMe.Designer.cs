@@ -42,6 +42,7 @@
             notifyRemindMe = new NotifyIcon(components);
             ctxRemindMe = new ContextMenuStrip(components);
             menuShowReminders = new ToolStripMenuItem();
+            menuPause = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             menuExit = new ToolStripMenuItem();
             reminderTimer = new System.Windows.Forms.Timer(components);
@@ -151,7 +152,7 @@
             // 
             // ctxRemindMe
             // 
-            ctxRemindMe.Items.AddRange(new ToolStripItem[] { menuShowReminders, toolStripSeparator1, menuExit });
+            ctxRemindMe.Items.AddRange(new ToolStripItem[] { menuShowReminders, menuPause, toolStripSeparator1, menuExit });
             ctxRemindMe.Name = "ctxRemindMe";
             ctxRemindMe.Size = new Size(165, 76);
             // 
@@ -161,6 +162,13 @@
             menuShowReminders.Size = new Size(164, 22);
             menuShowReminders.Text = "Show Reminders";
             menuShowReminders.Click += menuShowReminders_Click;
+            // 
+            // menuPause
+            // 
+            menuPause.Name = "menuPause";
+            menuPause.Size = new Size(164, 22);
+            menuPause.Text = "Pause Reminders";
+            menuPause.Click += menuPause_Click;
             // 
             // toolStripSeparator1
             // 
@@ -212,6 +220,7 @@
         private NotifyIcon notifyRemindMe;
         private ContextMenuStrip ctxRemindMe;
         private ToolStripMenuItem menuShowReminders;
+        private ToolStripMenuItem menuPause;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem menuExit;
         private System.Windows.Forms.Timer reminderTimer;

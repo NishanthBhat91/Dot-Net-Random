@@ -86,6 +86,20 @@ namespace NBKRemindeMe
             menuShowReminders_Click(sender, new EventArgs() { });
         }
 
+        private void menuPause_Click(object sender, EventArgs e)
+        {
+            if (menuPause.Text == "Pause Reminders")
+            {
+                menuPause.Text = "Resume";
+                reminderTimer.Enabled = false;
+            }
+            else
+            {
+                menuPause.Text = "Pause Reminders";
+                reminderTimer.Enabled = true;
+            }
+        }
+
         private void reminderTimer_Tick(object sender, EventArgs e)
         {
             DateTime current = DateTime.Now;

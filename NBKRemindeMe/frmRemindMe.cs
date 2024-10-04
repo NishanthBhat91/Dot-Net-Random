@@ -92,11 +92,13 @@ namespace NBKRemindeMe
             {
                 menuPause.Text = "Resume";
                 reminderTimer.Enabled = false;
+                notifyRemindMe.Icon =Resource.RemindMeInactive;
             }
             else
             {
                 menuPause.Text = "Pause Reminders";
                 reminderTimer.Enabled = true;
+                notifyRemindMe.Icon = Resource.RemindMeActive;
             }
         }
 

@@ -180,6 +180,7 @@
             menuExit.Name = "menuExit";
             menuExit.Size = new Size(164, 22);
             menuExit.Text = "Exit";
+            menuExit.Click += menuExit_Click;
             // 
             // reminderTimer
             // 

@@ -93,6 +93,12 @@ namespace NBKRemindeMe
             this.Show();
         }
 
+        private void menuExit_Click(object sender, EventArgs e)
+        {
+            notifyRemindMe.Visible = false;
+            Application.Exit();
+        }
+
         private void notifyRemindMe_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             menuShowReminders_Click(sender, new EventArgs() { });

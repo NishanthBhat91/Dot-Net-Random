@@ -66,7 +66,17 @@ namespace NBKRemindeMe
 
         private void frmRemindMe_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //TODO - Implement logic to minimize to tray
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                this.ShowInTaskbar = false;
+                this.Hide();
+                notifyRemindMe.BalloonTipIcon = ToolTipIcon.Info;
+                notifyRemindMe.BalloonTipTitle = "Remind me is running";
+                notifyRemindMe.BalloonTipText = "Remind me Is running in background";
+                notifyRemindMe.Visible = true;
+                notifyRemindMe.ShowBalloonTip(2000);
+            }
         }
 
         private void SortReminders()
@@ -78,6 +88,8 @@ namespace NBKRemindeMe
 
         private void menuShowReminders_Click(object sender, EventArgs e)
         {
+            notifyRemindMe.Visible = false;
+            this.ShowInTaskbar = true;
             this.Show();
         }
 
